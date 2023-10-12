@@ -1,0 +1,7 @@
+.headerNav {
+    display: flex;
+    gap: 30px;
+    padding: 30px;
+    margin: 10px o;
+    font-size: 25px;
+}
