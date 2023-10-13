@@ -5,7 +5,7 @@ import { searchMovie } from 'components/API/api';
 import MoviesList from 'components/MoviesList/MoviesList';
 const Movies = () => {
   const [moviesList, setMoviesList] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
   const [searchParam, setSearchParam] = useSearchParams();
   const query = searchParam.get('query');
   useEffect(() => {
