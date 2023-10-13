@@ -1,5 +1,5 @@
 import { ListItem } from 'components/ListItem/ListItem';
-import css from './MoviesList.module.css';
+// import css from './MoviesList.module.css';
 
 const MoviesList = ({ moviesList }) => {
   return (

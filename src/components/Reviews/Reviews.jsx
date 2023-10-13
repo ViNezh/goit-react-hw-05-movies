@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieReviews } from 'components/API/api';
 import { Loader } from 'components/Loader/loader';
-import css from './Reviews.module.css';
+// import css from './Reviews.module.css';
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);

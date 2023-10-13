@@ -1,4 +1,4 @@
-import css from './Details.module.css';
+// import css from './Details.module.css';
 
 const DetailsCard = ({ poster, title, release, score, overview, genres }) => {
   const defaultImg =

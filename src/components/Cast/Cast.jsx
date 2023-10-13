@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieCredits } from 'components/API/api';
 import { Loader } from 'components/Loader/loader';
-import css from './Cast.module.css';
+// import css from './Cast.module.css';
 
 const Cast = () => {
   const [casts, setCasts] = useState([]);
