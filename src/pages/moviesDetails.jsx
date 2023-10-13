@@ -1,13 +1,15 @@
-import React, { useEffect, useState, Suspense } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { useEffect, useState, useRef } from 'react';
+import { Link, Outlet, useParams, useLocation } from 'react-router-dom';
 import { fetchMovieDetails } from 'components/API/api';
 import DetailsCard from 'components/Details/Details';
 import { Loader } from 'components/Loader/loader';
 
 const MovieDetails = () => {
+  const location = useLocation();
   const [details, setDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const { movieId } = useParams();
+  const backLinkHref = useRef(location.state?.from ?? '/');
   useEffect(() => {
     if (!movieId) return;
     const fetchDetails = async () => {
@@ -25,9 +27,11 @@ const MovieDetails = () => {
 
     fetchDetails();
   }, [movieId]);
-
+  console.log(backLinkHref.current);
+  console.log(location.state);
   return (
     <>
+      <Link to={backLinkHref.current}>Go back</Link>
       {isLoading && <Loader />}
       {details !== null && (
         <DetailsCard
@@ -48,9 +52,6 @@ const MovieDetails = () => {
         </li>
       </ul>
       <Outlet />
-      {/* <Suspense fallback={<Loader />}>
-       
-      </Suspense> */}
     </>
   );
 };

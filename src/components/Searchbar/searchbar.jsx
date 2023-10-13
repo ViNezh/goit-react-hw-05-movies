@@ -1,13 +1,13 @@
+import { useState } from 'react';
 import { toast } from 'react-toastify';
 import css from './searchbar.module.css';
-import { useSearchParams } from 'react-router-dom';
 
 export const Searchbar = ({ handleSubmit }) => {
-  const [searchQuery, setSearchQuery] = useSearchParams();
+  const [searchQuery, setSearchQuery] = useState('');
 
   // Функція фіксації змін в полі input
   const onInputChange = evt => {
-    setSearchQuery({ query: evt.currentTarget.value.toLowerCase() });
+    setSearchQuery(evt.currentTarget.value.toLowerCase());
   };
   // Функція обробки відправки форми
   const onSubmit = evt => {
@@ -41,7 +41,7 @@ export const Searchbar = ({ handleSubmit }) => {
           type="text"
           autoComplete="off"
           autoFocus
-          placeholder="Search images and photos"
+          placeholder="Search movie"
           value={searchQuery}
           onChange={onInputChange}
         />

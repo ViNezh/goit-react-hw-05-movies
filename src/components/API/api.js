@@ -19,10 +19,9 @@ export const fetchTrendingMovies = async () => {
 export const searchMovie = query => {
   return axiosInstance.get('/search/movie', {
     params: {
-      query: query,
+      query,
       include_adult: 'false',
-      language: 'en-US',
-      page: '1',
+      page: 1,
     },
   });
 };
