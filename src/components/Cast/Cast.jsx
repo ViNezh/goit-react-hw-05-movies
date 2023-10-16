@@ -24,7 +24,7 @@ const Cast = () => {
     getCasts();
   }, [movieId]);
 
-  const defaultImg = 'http://dummyimage.com/80.jpg/99cccc&text=No+foto!';
+  const defaultImg = 'https://dummyimage.com/80.jpg/99cccc&text=No+foto!';
 
   return (
     <ul className={css.listWraper}>
