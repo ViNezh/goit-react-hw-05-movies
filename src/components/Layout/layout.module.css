@@ -2,6 +2,15 @@
     display: flex;
     gap: 30px;
     padding: 30px;
-    margin: 10px o;
+    margin: 10px 0;
     font-size: 25px;
+    color: black;
+}
+
+.headerLink {
+    color: black;
+}
+
+.headerLink.active {
+    color: chocolate;
 }

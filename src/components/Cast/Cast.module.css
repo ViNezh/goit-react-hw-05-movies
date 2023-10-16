@@ -1,0 +1,17 @@
+.listWraper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+.castImage {
+    width: 120px;
+}
+
+@media screen and (min-width: 720px) {
+    .listWraper {
+        align-items: start;
+    }
+}

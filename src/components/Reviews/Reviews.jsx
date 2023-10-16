@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieReviews } from 'components/API/api';
-import { Loader } from 'components/Loader/loader';
-// import css from './Reviews.module.css';
+import Loader from 'components/Loader/loader';
+import css from './Reviews.module.css';
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -24,7 +24,7 @@ const Reviews = () => {
   }, [movieId]);
   const noReview = "We don't have any reviews for this movie";
   return (
-    <ul>
+    <ul className={css.reviewList}>
       {isLoading ? (
         <Loader />
       ) : reviews.length === 0 ? (
@@ -32,7 +32,7 @@ const Reviews = () => {
       ) : (
         reviews.map(review => {
           return (
-            <li key={review.id}>
+            <li key={review.id} className={css.reviewWraper}>
               <p>Author: {review.author}</p>
               <p>{review.content}</p>
             </li>

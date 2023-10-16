@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import css from './TrendingList.module.css';
 import { fetchTrendingMovies } from 'components/API/api';
 import { ListItem } from 'components/ListItem/ListItem';
-import { Loader } from 'components/Loader/loader';
+import Loader from 'components/Loader/loader';
 
 const TrendingList = () => {
   const [isLoader, setIsLoader] = useState(false);

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieCredits } from 'components/API/api';
-import { Loader } from 'components/Loader/loader';
-// import css from './Cast.module.css';
+import Loader from 'components/Loader/loader';
+import css from './Cast.module.css';
 
 const Cast = () => {
   const [casts, setCasts] = useState([]);
@@ -27,7 +27,7 @@ const Cast = () => {
   const defaultImg = 'http://dummyimage.com/80.jpg/99cccc&text=No+foto!';
 
   return (
-    <ul>
+    <ul className={css.listWraper}>
       {isLoading ? (
         <Loader />
       ) : (
@@ -40,6 +40,7 @@ const Cast = () => {
                     ? `https://image.tmdb.org/t/p/w500/${cast.profile_path}`
                     : defaultImg
                 }
+                className={css.castImage}
                 alt={cast.name}
                 width="120px"
                 height="160px"

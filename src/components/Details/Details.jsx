@@ -1,4 +1,4 @@
-// import css from './Details.module.css';
+import css from './Details.module.css';
 
 const DetailsCard = ({ poster, title, release, score, overview, genres }) => {
   const defaultImg =
@@ -16,18 +16,19 @@ const DetailsCard = ({ poster, title, release, score, overview, genres }) => {
   }
 
   return (
-    <div>
+    <div className={css.cardWraper}>
       <div>
         <img
           src={
             poster ? `https://image.tmdb.org/t/p/w500/${poster}` : defaultImg
           }
+          className={css.posterImage}
           alt={title}
-          width="240px"
-          height="320px"
+          width="320px"
+          height="480px"
         />
       </div>
-      <div>
+      <div className={css.description}>
         <section>
           <h2>
             {title}({releaseYear})
@@ -36,7 +37,7 @@ const DetailsCard = ({ poster, title, release, score, overview, genres }) => {
         </section>
         <section>
           <h3>Overview</h3>
-          <p>{overview}</p>
+          <p className={css.overviewText}>{overview}</p>
         </section>
         <section>
           <h3>Genres</h3>

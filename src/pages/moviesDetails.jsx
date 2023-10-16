@@ -2,7 +2,8 @@ import { useEffect, useState, useRef } from 'react';
 import { Link, Outlet, useParams, useLocation } from 'react-router-dom';
 import { fetchMovieDetails } from 'components/API/api';
 import DetailsCard from 'components/Details/Details';
-import { Loader } from 'components/Loader/loader';
+import Loader from 'components/Loader/loader';
+import { Suspense } from 'react';
 
 const MovieDetails = () => {
   const location = useLocation();
@@ -27,13 +28,11 @@ const MovieDetails = () => {
 
     fetchDetails();
   }, [movieId]);
-  console.log(backLinkHref.current);
-  console.log(location.state);
   return (
     <>
       <Link to={backLinkHref.current}>Go back</Link>
       {isLoading && <Loader />}
-      {details !== null && (
+      {details !== 0 && (
         <DetailsCard
           poster={details.poster_path}
           title={details.title}
@@ -51,7 +50,9 @@ const MovieDetails = () => {
           <Link to="reviews">Reviews</Link>
         </li>
       </ul>
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

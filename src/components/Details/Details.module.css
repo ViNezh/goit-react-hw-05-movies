@@ -1,0 +1,32 @@
+.cardWraper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+
+}
+
+.description {
+    max-width: 320px;
+}
+
+@media screen and (min-width: 720px) {
+    .cardWraper {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .posterImage {
+        width: 320px;
+    }
+
+    .description {
+        max-width: 100%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .description {
+        max-width: 100%;
+    }
+}
