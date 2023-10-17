@@ -9,8 +9,8 @@ const Movies = () => {
   const [searchParam, setSearchParam] = useSearchParams();
   const query = searchParam.get('query');
   useEffect(() => {
+    if (!query) return;
     const getMoviesList = async () => {
-      if (!query) return;
       try {
         const data = await searchMovie(query);
         setMoviesList(data.data.results);

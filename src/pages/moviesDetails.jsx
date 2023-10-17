@@ -7,7 +7,7 @@ import { Suspense } from 'react';
 
 const MovieDetails = () => {
   const location = useLocation();
-  const [details, setDetails] = useState([]);
+  const [details, setDetails] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { movieId } = useParams();
   const backLinkHref = useRef(location.state?.from ?? '/');
@@ -32,16 +32,7 @@ const MovieDetails = () => {
     <>
       <Link to={backLinkHref.current}>Go back</Link>
       {isLoading && <Loader />}
-      {details !== 0 && (
-        <DetailsCard
-          poster={details.poster_path}
-          title={details.title}
-          release={details.release_date}
-          score={details.vote_average}
-          overview={details.overview}
-          genres={details.genres}
-        />
-      )}
+      {details && <DetailsCard details={details} />}
       <ul>
         <li>
           <Link to="cast">Cast</Link>

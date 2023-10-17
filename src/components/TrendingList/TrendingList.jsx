@@ -24,13 +24,17 @@ const TrendingList = () => {
   }, []);
 
   return (
-    <ul className={css.list}>
+    <>
       {isLoader && <Loader />}
-      {trendingList.length > 0 &&
-        trendingList.map(movie => {
-          return <ListItem id={movie.id} title={movie.title} key={movie.id} />;
-        })}
-    </ul>
+      <ul className={css.list}>
+        {trendingList.length > 0 &&
+          trendingList.map(movie => {
+            return (
+              <ListItem id={movie.id} title={movie.title} key={movie.id} />
+            );
+          })}
+      </ul>
+    </>
   );
 };
 export default TrendingList;
